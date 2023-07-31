@@ -1,0 +1,79 @@
+\usepackage{amssymb, amsfonts, amsbsy, amsmath, amsthm, amscd}
+
+% Graphik und kommutative Diagramme
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[all,cmtip]{xy}
+\usepackage{faktor}
+
+% Gruppen, Ringe und Körper
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\ZZ}{{\mathbb Z}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\CC}{{\mathbb C}}
+\newcommand{\FF}{{\mathbb F}}
+\newcommand{\Gal}{\operatorname{Gal}}
+
+% Potenzmenge
+\renewcommand{\P}{{\mathfrak P}}
+
+% Abbildungen
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Abb}{\operatorname{Abb}}
+%\newcommand{\ker}{\operatorname{ker}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\sheaves}{\operatorname{Sheaves}}
+\newcommand{\tor}{\operatorname{Tor}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\cardinality}[1]{\vert #1 \vert}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\ideal}[1]{(#1)}
+\newcommand{\characteristic}{\operatorname{char}}
+\newcommand{\LC}{\operatorname{LC}}
+
+% Kategorien
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\ccomplex}[2]{\operatorname{\textbf{Ch}}#1{\geq0}(\mathcal{#2})}
+\newcommand{\ch}{\textrm{\textup{\textbf{Ch}}}}
+\newcommand{\ab}{\textrm{\textup{\textbf{Ab}}}}
+\newcommand{\Rmod}{\textrm{\textup{\textbf{mod}}}}
+
+% Sonstige
+\newcommand{\setvert}{\;\vert\;}
+\newcommand{\divides}{\,\vert\,}
+
+
+% Theorem Definitionen mit durchlaufender Numerierung
+%\swapnumbers
+\theoremstyle{definition}
+\newtheorem{theorem}[subsubsection]{Theorem}
+\newtheorem{lemma}[subsubsection]{Lemma}
+\newtheorem{corollary}[subsubsection]{Corollary}
+\newtheorem{proposition}[subsubsection]{Proposition}
+\newtheorem{algorithm}[subsubsection]{Algorithm}
+\newtheorem{exercise}[subsubsection]{Exercise}
+\newtheorem{porism}[subsubsection]{Porism}
+\newtheorem{criterion}[subsubsection]{Criterion}
+\newtheorem{construction}[subsubsection]{Construction}
+
+\newtheorem{definition}[subsubsection]{Definition}
+\newtheorem{assumption}[subsubsection]{Assumption}
+\newtheorem{axiom}[subsubsection]{Axiom}
+\newtheorem{notation}[subsubsection]{Notation}
+
+\newtheorem{aufgabe}[section]{Aufgabe}
+
+\theoremstyle{plain}
+\newtheorem{remark}[subsubsection]{Remark}
+\newtheorem{example}[subsubsection]{Example}
+\newtheorem{note}[subsubsection]{Note}
+
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+
+\DeclareRobustCommand\longtwoheadrightarrow
+     {\relbar\joinrel\twoheadrightarrow}
