@@ -1,0 +1,17 @@
+\section{Graded Rings}
+
+\begin{definition}
+    A ring $A$ is called \textit{graded} if there is a family $\{A_n \setvert n \in \ZZ\}$ of abelian groups such that $$A=\bigoplus_{n\in\ZZ} A_n \text{ and } A_n\cdot A_m \subseteq A_{n+m}.$$
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}[label=(\roman*)]
+        \item Any ring $A$ can be given a \textit{trivial gradation} via $A_0=A$ and $A_n=0$ for all $n\neq0$.
+        
+        \item Let $k[X]$ be the polynomial ring in one variable over a field $k$.
+        Then $k[X]$ can be given the \textit{natural gradation} $k[X]_n=k\cdot X^n$ for $n\geq 0$ and $k[X]_n=0$ for $n<0$.
+
+        \item Let $A=k[X,X^{-1}]$ be a ring.
+        Then $A$ can be given the gradation $A_n=k\cdot X^n$ for all $n\in\ZZ$.
+    \end{enumerate}
+\end{example}

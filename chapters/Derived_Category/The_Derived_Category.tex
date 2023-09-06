@@ -1,0 +1,18 @@
+\section{The Derived Category}
+This section follows \cite{gelfand}.
+
+\begin{theorem}
+    There is a category $D(\Agr)$ and a functor $Q: \Kom{\Agr} \rightarrow D(\Agr)$ with the following properties:
+    \begin{enumerate}[label=(\roman*)]
+        \item \label{dc:first} For any quasi-isomorphism $f$, $Q(f)$ is an isomorphism.
+        \item Any functor $F: \Kom{\Agr} \rightarrow D$ with property~\ref{dc:first} uniquely factorizes through $D(\Agr)$, i.~e. there is a unique functor $G: D(\Agr) \rightarrow D$ such that $F = G \circ Q$.
+    \end{enumerate}
+
+    The category $D(\Agr)$ is called the derived category of the category of graded modules.
+\end{theorem}
+
+To prove the existence and uniqueness of the derived category, we will first introduce the notion of a localization of a category and then show that the derived category is a localization of the \hyperref[def:homCat]{homotopy category} w.~r.~t. quasi-isomorphisms.
+
+\begin{remark}
+    As it is shown in \cite{gelfand}, the derived category can be defined for an arbitrary abelian category $\cat{A}$.
+\end{remark}

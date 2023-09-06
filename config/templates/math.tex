@@ -28,7 +28,8 @@
 \newcommand{\sheaves}{\operatorname{Sheaves}}
 \newcommand{\tor}{\operatorname{Tor}}
 \newcommand{\cone}{\operatorname{cone}}
-\newcommand{\im}{\operatorname{im}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\coim}{\operatorname{Coim}}
 \newcommand{\Ob}{\operatorname{Ob}}
 \newcommand{\cardinality}[1]{\vert #1 \vert}
 \newcommand{\ord}{\operatorname{ord}}
@@ -41,7 +42,10 @@
 \newcommand{\ccomplex}[2]{\operatorname{\textbf{Ch}}#1{\geq0}(\mathcal{#2})}
 \newcommand{\ch}{\textrm{\textup{\textbf{Ch}}}}
 \newcommand{\ab}{\textrm{\textup{\textbf{Ab}}}}
-\newcommand{\Rmod}{\textrm{\textup{\textbf{mod}}}}
+\newcommand{\Rmod}{R\textrm{\textup{\textbf{-mod}}}}
+\newcommand{\Amod}{A\textrm{\textup{\textbf{-mod}}}}
+\newcommand{\Agr}{A\textrm{\textup{\textbf{-gr}}}}
+\newcommand{\Kom}[1]{\textrm{\textup{\textbf{Kom}}}(\cat{#1})}
 
 % Sonstige
 \newcommand{\setvert}{\;\vert\;}
@@ -51,29 +55,39 @@
 % Theorem Definitionen mit durchlaufender Numerierung
 %\swapnumbers
 \theoremstyle{definition}
-\newtheorem{theorem}[subsubsection]{Theorem}
-\newtheorem{lemma}[subsubsection]{Lemma}
-\newtheorem{corollary}[subsubsection]{Corollary}
-\newtheorem{proposition}[subsubsection]{Proposition}
-\newtheorem{algorithm}[subsubsection]{Algorithm}
-\newtheorem{exercise}[subsubsection]{Exercise}
-\newtheorem{porism}[subsubsection]{Porism}
-\newtheorem{criterion}[subsubsection]{Criterion}
-\newtheorem{construction}[subsubsection]{Construction}
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{corollary}[subsection]{Corollary}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{algorithm}[subsection]{Algorithm}
+\newtheorem{exercise}[subsection]{Exercise}
+\newtheorem{porism}[subsection]{Porism}
+\newtheorem{criterion}[subsection]{Criterion}
+\newtheorem{construction}[subsection]{Construction}
 
-\newtheorem{definition}[subsubsection]{Definition}
-\newtheorem{assumption}[subsubsection]{Assumption}
-\newtheorem{axiom}[subsubsection]{Axiom}
-\newtheorem{notation}[subsubsection]{Notation}
+\newtheorem{definition}[subsection]{Definition}
+\newtheorem{assumption}[subsection]{Assumption}
+\newtheorem{axiom}[subsection]{Axiom}
+\newtheorem{notation}[subsection]{Notation}
 
-\newtheorem{aufgabe}[section]{Aufgabe}
+\newtheorem{aufgabe}[subsection]{Aufgabe}
 
 \theoremstyle{plain}
-\newtheorem{remark}[subsubsection]{Remark}
-\newtheorem{example}[subsubsection]{Example}
-\newtheorem{note}[subsubsection]{Note}
+\newtheorem{remark}[subsection]{Remark}
+\newtheorem{example}[subsection]{Example}
+\newtheorem{note}[subsection]{Note}
 
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
 
 \DeclareRobustCommand\longtwoheadrightarrow
      {\relbar\joinrel\twoheadrightarrow}
+
+% Restriction of map
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \littletaller % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}

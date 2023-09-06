@@ -1,8 +1,25 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass{scrreprt}
+\KOMAoptions{
+    twoside=true,
+    fontsize=11pt,
+}
 
 \input{config/config.tex}
 \input{config/templates/math.tex}
 
 \begin{document}
 
+    \tableofcontents
+
+    \chapter{Preliminaries}
+    \input{chapters/graded_modules.tex}
+
+    \chapter{The Derived Category}
+    \input{chapters/derived_category.tex}
+
+    \appendix
+    \chapter{Basic Category Theory Facts}
+    \input{chapters/category_theory.tex}
+
+    \printbibliography
 \end{document}

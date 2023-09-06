@@ -1,0 +1,56 @@
+In this section, there are pieces taken from \cite{weibel}, \cite{huybrechts} and \cite{working}.
+
+\begin{definition}
+    Let $\cat{A}$ be a category, $B, C$ objects of $\cat{A}$.
+
+    A \textit{kernel} of a morphism $f:B \rightarrow C$ is an object $A$ together with a morphism $k: A \rightarrow B$ such that $f \circ k = 0$.
+    It also has to satisfy the following universal property:
+    If $e: A' \rightarrow B$ is another morphism such that $f \circ e = 0$, then $e$ factors through $A$ as $e = k \circ e'$ for a unique $e': A' \rightarrow A$.
+    \[
+        \xymatrix{
+            A \ar[r]^k & B \\
+            A' \ar[ru]^e \ar[u]^{e'}
+        }
+    \]
+
+    Similarly, a \textit{cokernel} of a morphism $f: B \rightarrow C$ is an object $D$ together with a morphism $c: C \rightarrow D$ such that $c \circ f = 0$.
+    It also has to satisfy the following universal property:
+    If $g:C \rightarrow D'$ is another morphism such that $g \circ f = 0$, then $g$ factors through $D$ as $g = g' \circ c$ for a unique $g': D \rightarrow D'$.
+    \[
+        \xymatrix{
+            C \ar[r]^c \ar[rd]^g & D \ar[d]^{g'} \\
+            & D'
+        }
+    \]
+\end{definition}
+
+\begin{definition}\label{def:addCat}
+    A category $\cat{A}$ is called \textit{additive} if for every two objects $A,B \in \Ob\cat{A}$ the set of morphisms $\Hom(A,B)$ has the structure of an abelian group s. t.:
+    \begin{enumerate}[label=(\roman*)]
+        \item The composition $\Hom(A_1,A_2) \times \Hom(A_2,A_3) \rightarrow \Hom(A_1,A_3)$ is bilinear.
+        \item There is a zero object $0 \in \Ob\cat{A}$ s. t. $\Hom(0,0)$ is the trivial group.
+        \item For any two object $A_1, A_2$ in $\Ob\cat{A}$ there is an object $B \in \Ob\cat{A}$ and morphisms $\iota_i: A_i \rightarrow B$, $\pi_i:B \rightarrow A_i$ which make $B$ the direct sum and direct product of $A_1$ and $A_2$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}\label{def:abCat}
+    An additive category $\cat{A}$ is called \textit{abelian} if for every morphism $f \in \Hom(A,B)$ has a kernel and a cokernel and the natural map $\coim f \rightarrow \im f$ is an isomorphism.
+
+    Equivalently, an additive category is called \textit{abelian} if for any morphism $f:A\rightarrow B$ there exists the following diagram
+    
+    \[
+        \xymatrix{
+            \ker f \ar[r]^{\iota} & A \ar[rrr]^{f} \ar[rd] & & & B \ar[r]^{\pi} & \coker f \\
+            & & \coker \iota \ar[r]^{\sim} & \ker\pi \ar[ur] & & 
+        }
+    \]
+\end{definition}
+
+\begin{proposition}
+    For a given category $\cat{C}$, let $R$ be a function that assigns a binary relation $R_{a,b}$ to each pair of objects $(a,b)$ of $\cat{C}$.
+    Then there is a category $\cat{C}/R$ and a quotient functor $Q=Q_R: \cat{C} \rightarrow \cat{C}/R$ such that
+    \begin{enumerate}[label=(\roman*)]
+        \item \label{quot:first} If $f R_{a,b} f'$ in $\cat{C}$, then $Qf = Qf'$.
+        \item If $H: \cat{C} \rightarrow \cat{D}$ is another functor satisfying~\ref{quot:first}, then there is a unique functor $H': \cat{C}/R \rightarrow \cat{D}$ such that $H' \circ Q_R = H$.
+    \end{enumerate}
+\end{proposition}

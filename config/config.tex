@@ -1,15 +1,5 @@
 \usepackage[utf8]{inputenc}
 
-% Seitenränder
-\usepackage{geometry}
-\geometry{
-	a4paper,
-	left=30mm,
-	right=30mm,
-	top=35mm,
-	bottom=35mm,
-}
-
 \usepackage[english]{babel}
 \usepackage{enumitem}
 
@@ -26,6 +16,16 @@
 \definecolor{darkblue}{rgb}{0,0,.5}
 
 % Das macht, dass man im pdf auf die Verweise klicken kann
-\usepackage[colorlinks,linkcolor=darkblue,citecolor=darkblue,urlcolor=petrol]{hyperref}
+\usepackage[colorlinks,linkcolor=,citecolor=,urlcolor=petrol]{hyperref}
 
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcommand{\TODO}[1]{\textcolor{red}{\Large \bfseries #1}}
+
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+\addbibresource{bibliography.bib}

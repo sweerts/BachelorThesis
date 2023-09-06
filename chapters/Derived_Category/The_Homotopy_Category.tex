@@ -1,0 +1,75 @@
+\section{The Homotopy Category}
+This section follows \cite{weibel}.
+
+\begin{definition}
+    A complex morphism $f: A^\bullet \rightarrow B^\bullet$ is called \textit{null-homotopic} if there are maps $s_i: A^i \rightarrow B^{i-1}$ such that $f^i = d^{i-1}_Bs^{i} + s^{i+1}d^i_A$ for all $i \in \ZZ$.
+\end{definition}
+
+\begin{definition}
+    Two complex maps $f,g: A^\bullet \rightarrow B^\bullet$ is called \textit{homotopic} if their difference $f - g$ is null-homotopic.
+
+    A morphism $f: A^\bullet \rightarrow B^\bullet$ is called \textit{homotopy equivalence} if there is a morphism $g: B^\bullet \rightarrow A^\bullet$ such that $fg$ is homotopic to $\id_{B^\bullet}$ and $gf$ is homotopic to $\id_{A^\bullet}$.
+\end{definition}
+
+\begin{lemma}
+    If $f: A^\bullet \rightarrow B^\bullet$ is null-homotopic, then the induced map $H^i(f)$ is zero for every $i \in \ZZ$.
+
+    If $f,g: A^\bullet \rightarrow B^\bullet$ are homotopic, then they induce the same map $H^i(f) = H^i(g)$ for every $i \in \ZZ$.
+\end{lemma}
+
+\begin{proof}
+    Let $f: A^\bullet \rightarrow B^\bullet$ be null-homotopic.
+    Then there are maps $s_i: A^i \rightarrow B^{i-1}$ such that $f^i = d^{i-1}_Bs^{i} + s^{i+1}d^i_A$ for all $i \in \ZZ$.
+
+    Let $a \in H^i(A^\bullet) = \frac{\ker(d^i_A)}{\im(d^{i-1}_A)}$.
+    Then there is an $a' \in \ker(d^i_A)$ that represents $a$.
+
+    Then 
+    \begin{align*}
+        f^i(a') &= (d^{i-1}_Bs^{i} + s^{i+1}d^i_A)(a') = (d^{i-1}_Bs^{i})(a') + (s^{i+1}d^i_A)(a') \\
+        &= (d^{i-1}_Bs^{i})(a') + 0 = (d^{i-1}_Bs^{i})(a') = d^{i-1}_B(s^i(a')),
+    \end{align*}
+    so $f^i(a') \in \im(d^{i-1}_B)$.
+    Therefore, $a$ gets mapped two zero in cohomology.
+
+    Let $f,g: A^\bullet \rightarrow B^\bullet$ be homotopic.
+    Then $f-g$ is null-homotopic, so $f-g$ induces zero maps in cohomology.
+    Therefore, $f$ and $g$ induce the same map in cohomology.
+\end{proof}
+
+\begin{theorem}\label{def:homCat}
+    Homotopy classes of morphisms of complexes form a quotient category $K(\Agr)$ of the category of complexes $\Kom{\Agr}$.
+    This category is called the \textit{homotopy category} of $\Agr$.
+    The cohomology functors $H^i$ factor through the quotient functor $\Kom{\Agr} \rightarrow K(\Agr)$.
+\end{theorem}
+
+\begin{proof}
+    First, we will show that homotopy equivalence is an equivalence relation on all morphisms $A^\bullet \rightarrow B^\bullet$.
+    
+    Obviously, every morphism $f: A^\bullet \rightarrow B^\bullet$ is homotopic to itself, since $f - f = 0$.
+    Let $f,g: A^\bullet \rightarrow B^\bullet$ be morphisms of complexes and let $f$ be homotopic to $g$.
+    Then there are maps $s^i: A^i \rightarrow B^{i-1}$ such that $f^i - g^i = d^{i-1}s^i + s^{i+1}d^i_A$.
+    Now let $\overline{s}^i: A^i \rightarrow B^{i-1}$ be the maps $\overline{s}^i := -s^i$.
+    Then
+    \begin{align*}
+        d^{i-1}\overline{s}^i + \overline{s}^{i+1}d^i_A &= d^{i-1}(-s^i) + (-s^{i+1})d^i_A \\
+        &= - d^{i-1}s^i + -s^{i+1}d^i_A \\
+        &= -(d^{i-1}s^i + s^{i+1}d^i_A) \\
+        &= -(f^i - g^i) \\
+        &= g^i - f^i.
+    \end{align*}
+    Therefore, $g$ is homotopic to $f$.
+    Now let $f,g,h: A^\bullet \rightarrow B^\bullet$ be morphisms of complexes such that $f$ is homotopic to $g$ and $g$ is homotopic to $h$.
+    Then there are $s^i: A^i \rightarrow B^{i-1}$ and $t^i: A^i \rightarrow B^i$ such that $f^i-g^i = d^{i-1}_Bs^i + s^{i+1}d^i_A$ and $g^i-h^i = d^{i-1}_Bt^i + t^{i+1}d^i_A$.
+    Consider
+    \begin{align*}
+        f^i - h^i &= f^i + (-g^i + g^i) - h^i \\
+        &= (f^i - g^i) - (g^i - h^i) \\
+        &= (d^{i-1}_Bs^i + s^{i+1}d^i_A) - (d^{i-1}_Bt^i + t^{i+1}d^i_A) \\
+        &= (d^{i-1}_Bs^i - d^{i-1}_Bt^i) + (s^{i+1}d^i_A - t^{i+1}d^i_A) \\
+        &= d^{i-1}_B(s^i - t^i) + (s^{i+1} - t^{i+1})d^i_A.
+    \end{align*}
+    Therefore, $f$ is homotopic to $h$.
+
+    Next, 
+\end{proof}

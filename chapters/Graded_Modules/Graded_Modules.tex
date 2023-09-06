@@ -1,0 +1,72 @@
+\section{Graded Modules}
+
+This section follows \cite[chapter 1 and 2]{gradedrings}.
+
+At first, we will introduce graded modules and we will show that these from an abelian category.
+
+\begin{definition}
+    Let $A=\bigoplus_n\in\ZZ A_n$ be a graded ring.
+    A \textit{graded $A$-module} is an $A$-module $M$ such that $$M=\bigoplus_{n\in\ZZ} M_n \text{ and } A_n\cdot M_m \subseteq M_{n+m}.$$
+
+    A \textit{graded morphism} $f:M \rightarrow N$ between graded modules $M$ and $N$ is a module morphism such that $f(M_n)\subseteq N_n$ for all $n \in \ZZ$, i. e. $$\Hom_{\Agr}(M,N)=\{f\in\Hom_A(M,N) \setvert f(M_n)\subseteq N_n \text{ for all } n \in \ZZ\}.$$
+
+    The graded $A$-modules togther with graded morphisms form a category $\Agr$.
+\end{definition}
+
+\begin{lemma}
+    The category of graded modules $\Agr$ is an \hyperref[def:abCat]{abelian category}.
+\end{lemma}
+
+\begin{proof}
+    First, we will show that $\Agr$ is an \hyperref[def:addCat]{additive category}.
+    \begin{enumerate}[label=(\roman*)]
+        \item By definition, $\Hom_{\Agr}(M,N)$ is a subgroup of $\Hom_{\Amod}(M,N)$.
+
+        \item Let $f_1, f_2: M \rightarrow M'$, $g: M' \rightarrow N$ be graded morphisms and let $a, b \in A$.
+        Then
+        \begin{align*}
+            (g \circ (af_1 + bf_2)) (x) &= g(af_1(x) + bf_2(x)) \\
+            &= g(af_1(x)) + g(bf_2(x)) \\
+            &= (g \circ af_1)(x) + (g \circ bf_2)(x)
+        \end{align*}
+        Therefore, $g \circ (af_1 + bf_2) = g \circ af_1 + g \circ bf_2$.
+        In the same way, $ (ag_1 + bg_2) \circ f = ag_1 \circ f + bg_2 \circ f$ for graded morphism $f: M \rightarrow M'$ and $g_1,g_2: M' \rightarrow N$.
+
+        \item Since $\Hom_{\Amod}(0,0) = \{0\}$, the zero module is the zero object of $\Agr$.
+    
+        \item Let $M = \bigoplus_{n\in\ZZ} M_n, N = \bigoplus_{n\in\ZZ} N_n$ be graded $A$-modules.
+        Let $$ P := \bigoplus_{n\in\ZZ} (M_n \times N_n) \text{ and } S := \bigoplus_{n\in\ZZ} (M_n \oplus N_n). $$
+        For $X \in \{M,N\}$, let
+        \begin{align*}
+            \iota_X&: X \rightarrow S, \quad (x_n)_{n\in\ZZ} \mapsto ((x_n,0))_{n\in\ZZ}, \\
+            \pi_X&: P \rightarrow X, \quad ((x^M_n, x^N_n))_{n\in\ZZ} \mapsto (x^X_n)_{n\in\ZZ}.
+        \end{align*}
+        Since $M_n \times N_n = M_n \oplus N_n$ for all $n\in\ZZ$, we have $S=P$.
+        Let $f_M: M \rightarrow B$ and $f_N: N \rightarrow B$ be graded morphisms.
+        Then for each $n\in\ZZ$, there is a unique $f_n: M_n \times N_n \rightarrow B_n$ such that $f \circ (\iota_M)_n = \restr{f_M}{M_n}$ and $f \circ \restr{\iota_N}{N_n}$, where $(\iota_X)_n$ is the map $(\iota_X)_n: X_n \rightarrow M_n \oplus N_n$.
+        Hence $f \circ \iota_M = f_M$ and $f \circ \iota_N = f_N$.
+
+        Similarly, if $g_M: B \rightarrow M$, $g_n: B \rightarrow N$ are graded morphism, then for each $n\in\ZZ$, there is a unique morphism $g_n: B_n \rightarrow M_n \times N_n$ such that $\pi_M \circ g_n = \restr{g_m}{M_n}$ and $\pi_N \circ g_n = \restr{g_N}{N_n}$.
+        Hence $\pi_M \circ g = g_M$ and $\pi_N \circ g = g_N$.
+\end{enumerate}
+
+    So far, we have shown that $\Agr$ is an additive category.
+
+    Finally, we need to show that every morphism $f \in \Hom_{\Agr}(M, N)$ has a kernel and a cokernel in $\Agr$ and that $f$ can be decomposed into a diagram
+    \[\xymatrix{
+            \ker f \ar[r]^{\iota} & A \ar[rrr]^{f} \ar[rd] & & & B \ar[r]^{\pi} & \coker f \\
+            & & \coim f \ar[r]^{\sim} & \im f  \ar[ur] & & 
+    }\]
+
+    Let $\ker f$ be the kernel of $f$ as $\Amod$ homomorphism and consider the grading
+    \[
+        (\ker f)_n = 
+        \begin{cases}
+            \ker f, & n=0 \\
+            0, & \text{otherwise}
+        \end{cases}.
+    \]
+    Then $\ker f$ is the kernel of $f$ in $\Agr$, since $f\left((\ker f)_n\right) = \{0\} \subseteq M_n$ for all $n\neq0$ and $f\left(\ker f\right)= \{0\} \subseteq M_0$.
+
+    \TODO{Hier fehlt noch so einiges :/}
+\end{proof}

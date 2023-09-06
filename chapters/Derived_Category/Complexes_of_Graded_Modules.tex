@@ -1,0 +1,122 @@
+\section{Complexes of Graded Modules}
+
+This section follows \cite{huybrechts} and \cite{weibel}.
+
+\begin{definition}
+    A \textit{complex} of graded modules is a diagram of graded modules
+    \[
+        \xymatrix{
+            \dots \ar[r] & A^{i-1} \ar[r]^-{d^{i-1}} & A^i \ar[r]^-{d^i} & A^{i+1} \ar[r]^-{d^{i+1}} & \dots
+        }
+    \]
+    such that $d^i \circ d^{i-1} = 0$ for all $i \in \ZZ$.
+
+    A morphism of complexes of graded modules $f: A^\bullet \rightarrow B^\bullet$ in $\cat{A}$ is given by morphisms of graded modules $f^n: A^n \rightarrow B^n$ such that the following diagram commutes:
+    \[
+        \xymatrix{
+            \dots \ar[r] & A^{i-1} \ar[r]^-{d^{i-1}_A} \ar[d]^{f^{i-1}} & A^i \ar[r]^-{d^i_A} \ar[d]^{f^i} & A^{i+1} \ar[r]^{d^{i-1}_A} \ar[d]^{f^{i+1}} & \dots \\
+            \dots \ar[r] & B^{i-1} \ar[r]^-{d^{i-1}_B} & B^i \ar[r]^-{d^i_B} & B^{i+1} \ar[r]^{d^{i-1}_B} & \dots
+        }
+    \]
+    Complexes of graded modules and morphisms of complexes of graded modules form a category $\Kom{\Agr}$.
+\end{definition}
+
+\begin{proposition}
+    The category $\Kom{\Agr}$ is abelian.
+\end{proposition}
+
+\begin{proof}
+    Let $A^\bullet, B^\bullet$ be complexes of graded modules.
+    For two morphisms of complexes $f,g: A^\bullet \rightarrow B^\bullet$, we define $f+g$ to be the morphism of complexes given by
+    \[
+        (f+g)^n = f^n + g^n.
+    \]
+
+    Since for every degree $n\in\ZZ$, $\Hom(A^n, B^n)$ is an abelian group, $\Hom(A^\bullet,B^\bullet)$ forms an abelian group as product of all $\Hom(A^n,B^n)$.
+
+    Bilinearity can be seen easily:
+    Let $f,g: A^\bullet \rightarrow B^\bullet$, $h: B^\bullet \rightarrow C^\bullet$ be morphisms of complexes.
+    Then for every $n\in\ZZ$,
+    \[
+        h^n \circ (f^n + g^n) = h^n \circ f^n + h^n + g^n,
+    \]
+    hence $h \circ (f + g) = h \circ f + h \circ g$.
+    Similarly, $(f'+g') \circ h' = f' \circ h' + g' \circ h'$ for appropriate $f', g', h'$.
+
+    Consider the complex $0^\bullet: \dots \rightarrow 0 \rightarrow 0 \rightarrow \dots$.
+    Since $0$ is the zero object in the category of graded modules, there is only one morphism $0^\bullet \rightarrow A^\bullet$ and $A^\bullet \rightarrow 0^\bullet$ for every complex $A^\bullet$.
+
+    Let $f: A^\bullet \rightarrow B^\bullet$ be a morphism of complexes of graded modules.
+    By taking the kernel and cokernel degreewise, we get the commutative diagram
+    \[
+        \xymatrix{
+            \dots & \ker f^{i-1} \ar[d]^{k^{i-1}} & \ker f^i \ar[d]^{k^i} & \ker f^{i+1} \ar[d]^{k^{i+1}} & \dots \\
+            \dots \ar[r] & A^{i-1} \ar[r]^-{d^{i-1}_A} \ar[d]^{f^{i-1}} & A^i \ar[r]^-{d^i_A} \ar[d]^{f^i} & A^{i+1} \ar[r]^{d^{i+1}_A} \ar[d]^{f^{i+1}} & \dots \\
+            \dots \ar[r] & B^{i-1} \ar[r]^-{d^{i-1}_B} \ar[d]^{c^{i-1}} & B^i \ar[r]^-{d^i_B} \ar[d]^{c^i} & B^{i+1} \ar[r]^{d^{i+1}_B} \ar[d]^{c^{i+1}} & \dots \\
+            \dots & \coker f^{i-1} & \coker f^i & \coker f^{i+1} & \dots
+        }
+    \]
+    which we can easily extend to
+    \[
+        \xymatrix{
+            \dots & \ker f^{i-1} \ar[d]^{k^{i-1}} & \ker f^i \ar[d]^{k^i} & \ker f^{i+1} \ar[d]^{k^{i+1}} & \dots \\
+            \dots \ar[r] & A^{i-1} \ar[r]^-{d^{i-1}_A} \ar[d]^{f^{i-1}} & A^i \ar[r]^-{d^i_A} \ar[d]^{f^i} & A^{i+1} \ar[r]^{d^{i+1}_A} \ar[d]^{f^{i+1}} & \dots \\
+            \dots \ar[r] & B^{i-1} \ar[r]^-{d^{i-1}_B} \ar[d]^{c^{i-1}} & B^i \ar[r]^-{d^i_B} \ar[d]^{c^i} & B^{i+1} \ar[r]^{d^{i+1}_B} \ar[d]^{c^{i+1}} & \dots \\
+            \dots \ar[r] & \coker f^{i-1} \ar[r] & \coker f^i \ar[r] & \coker f^{i+1} \ar[r] & \dots
+        }
+    \]
+
+    Now we will construct morphisms $\ker f^{i-1} \rightarrow \ker f^i$.
+    Let $x \in \ker f^{i-1}$.
+    Since $B^i \ni 0 = d^{i-1}_B(0) = d^{i-1}_B \circ f^{i-1} \circ k^{i-1} (x) = f^i \circ d^{i-1}_A \circ k^{i-1} (x)$, we can take $y_x \in \ker f^i$ such that $k^i(y_x) = d^{i-1}_A \circ k^{i-1} (x)$.
+    So define $h^{i-1}: \ker f^{i-1} \rightarrow \ker f^i$, $x \mapsto y_x$.
+
+    Therefore, we have a commutative diagram
+    \[
+        \xymatrix{
+            \dots \ar[r] & \ker f^{i-1} \ar[r]^-{h^{i-1} }\ar[d]^{k^{i-1}} & \ker f^i \ar[r]^-{h^i} \ar[d]^{k^i} & \ker f^{i+1} \ar[r]^-{h^{i+1}} \ar[d]^{k^{i+1}} & \dots \\
+            \dots \ar[r] & A^{i-1} \ar[r]^-{d^{i-1}_A} \ar[d]^{f^{i-1}} & A^i \ar[r]^-{d^i_A} \ar[d]^{f^i} & A^{i+1} \ar[r]^-{d^{i+1}_A} \ar[d]^{f^{i+1}} & \dots \\
+            \dots \ar[r] & B^{i-1} \ar[r]^-{d^{i-1}_B} \ar[d]^{c^{i-1}} & B^i \ar[r]^-{d^i_B} \ar[d]^{c^i} & B^{i+1} \ar[r]^-{d^{i+1}_B} \ar[d]^{c^{i+1}} & \dots \\
+            \dots \ar[r] & \coker f^{i-1} \ar[r] & \coker f^i \ar[r] & \coker f^{i+1} \ar[r] & \dots
+        }
+    \]
+
+    Since morphisms of complexes are defined degreewise, the complex $$(\ker f)^\bullet: \dots \rightarrow \ker f^{i-1} \rightarrow \ker f^i \rightarrow \ker f^{i+1} \rightarrow \dots$$ together with the morphism of complexes $k: (\ker f)^\bullet \rightarrow A^\bullet$ forms the kernel of $f$.
+    Similarly, $$(\coker f)^\bullet: \dots \rightarrow \coker f^{i-1} \rightarrow \coker f^i \rightarrow \coker f^{i+1} \rightarrow \dots$$ together with $c: B^\bullet \rightarrow (\coker f)^\bullet$ forms the cokernel of $f$.
+
+    Since every morphism $\coker k^i \rightarrow \ker c^i$ is an isomorphism, the corresponding morphism of complexes $(\coker k)^\bullet \rightarrow (\ker c)^\bullet$ is an isomorphism.
+\end{proof}
+
+\begin{definition}
+    Let $A^\bullet$ be a complex of graded modules.
+    We define $A^\bullet[1]$ to be the complex with $(A^\bullet[1])^i := A^{i+1}$ and differentials $d^i_{A^\bullet[1]} := -d^{i+1}_A$.
+
+    For a morphism $f: A^\bullet \rightarrow B^\bullet$, we define $f[1]$ to be the morphism $A^\bullet[1] \rightarrow B^\bullet[1]$ given by $f[1]^i = f^{i+1}$.
+\end{definition}
+
+\begin{corollary}
+    The \textit{shift functor} $T: \Kom{\Agr} \rightarrow \Kom{\Agr}$, $A^\bullet \mapsto A^\bullet[1]$, defines an equivalence of categories.
+\end{corollary}
+
+\begin{proof}
+    By defining $T^{-1}: \Kom{\Agr} \rightarrow \Kom{\Agr}$, $A^\bullet \mapsto A^\bullet[-1]$, where $(A^\bullet[-1])^i := A^{i-1}$, $d^i_{A^\bullet[-1]} := -d^{i-1}_A$ and $f[-1]^i = f^{i-1}$, we can see that $t \circ T^{-1} = id_{\Kom{A}} = T^{-1} \circ T$, hence $T$ is an equivalnce of categories.
+\end{proof}
+
+\begin{remark}
+    Let $A^\bullet$ be a complex of graded modules.
+    The \textit{cohomology} of a $A^\bullet$ is $$H^i(A^\bullet) := \frac{\ker(d^i)}{\im(d^{i-1})} = \coker(\im(d^{i-1}) \rightarrow \ker(d^i)) \in \cat{A}.$$
+    The complex $A^\bullet$ is said to be \textit{acyclic} if $H^i(A^\bullet) = 0$ for all $i \in \ZZ$.
+    Any morphism of complexes $f: A^\bullet \rightarrow B^\bullet$ induces natural morphisms $$H^i(f): H^i(A^\bullet) \rightarrow H^i(B^\bullet).$$
+\end{remark}
+
+\begin{remark}
+    A short exact sequence of complexes $$0 \rightarrow A^\bullet \rightarrow B^\bullet \rightarrow C^\bullet \rightarrow 0$$ gives rise to a long exact sequence in cohomology:
+    \[
+        \dots \rightarrow H^{i-1}(C^\bullet) \rightarrow H^{i}(A^\bullet) \rightarrow H^{i}(B^\bullet) \rightarrow H^{i}(C^\bullet) \rightarrow H^{i+1}(A^\bullet) \rightarrow \dots
+    \]
+    via connecting homomorphisms $\partial: H^{i-1}(C^\bullet) \rightarrow H^i(A^\bullet)$.
+\end{remark}
+
+\begin{definition}
+    A morphism $f: A^\bullet \rightarrow B^\bullet$ is called a \textit{quasi-isomorphism} if the induced morphism $$H^i(f): H^i(A^\bullet) \rightarrow H^i(B^\bullet)$$ is an isomorphism for each $i \in \ZZ$.
+\end{definition}
